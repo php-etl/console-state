@@ -1,5 +1,5 @@
 {
-    "name": "php-etl/state",
+    "name": "php-etl/console-state",
     "description": "This library allows you to use states",
     "type": "library",
     "license": "MIT",
