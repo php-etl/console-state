@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\State\StateOutput;
 
@@ -11,7 +13,7 @@ final class Workflow
     private string $index = 'A';
 
     public function __construct(
-        private ConsoleOutput $output,
+        private readonly ConsoleOutput $output,
     ) {
     }
 

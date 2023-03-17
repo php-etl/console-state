@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\State\StateOutput;
 
@@ -9,10 +11,10 @@ final class PipelineStep
 {
     /** @var array<string, callable> */
     private array $metrics = [];
-    private ConsoleSectionOutput $section;
+    private readonly ConsoleSectionOutput $section;
 
     public function __construct(
-        private ConsoleOutput $output,
+        private readonly ConsoleOutput $output,
         int $index,
         string $label,
     ) {
@@ -36,6 +38,7 @@ final class PipelineStep
                 fn (string $label, callable $callback) => sprintf('%s <fg=cyan>%d</>', $label, ($callback)()),
                 array_keys($this->metrics),
                 array_values($this->metrics),
-            )));
+            )))
+        ;
     }
 }

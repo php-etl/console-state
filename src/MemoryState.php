@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\State;
 
@@ -9,7 +11,7 @@ final class MemoryState implements StateInterface
     private array $metrics = [];
 
     public function __construct(
-        private StateInterface $decorated,
+        private readonly StateInterface $decorated,
     ) {
     }
 

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\State\StateOutput;
 
@@ -9,10 +11,10 @@ final class Pipeline
 {
     /** @var list<PipelineStep> */
     private array $steps = [];
-    private ConsoleSectionOutput $section;
+    private readonly ConsoleSectionOutput $section;
 
     public function __construct(
-        private ConsoleOutput $output,
+        private readonly ConsoleOutput $output,
         string $index,
         string $label,
     ) {
@@ -23,7 +25,7 @@ final class Pipeline
 
     public function withStep(string $label): PipelineStep
     {
-        return $this->steps[] = new PipelineStep($this->output, count($this->steps) + 1, $label);
+        return $this->steps[] = new PipelineStep($this->output, \count($this->steps) + 1, $label);
     }
 
     public function update(): void
