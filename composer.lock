@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4396b7eb6de0382960461984c3edb10",
+    "content-hash": "9671f91766bfa5f213bf29f68477d557",
     "packages": [
         {
             "name": "php-etl/bucket-contracts",
@@ -66,17 +66,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/pipeline-contracts.git",
-                "reference": "5fe30e55ac4af2ea23a15adba2ed349eb55db124"
+                "reference": "47e1e32aedb425c4624c1f6d9acf5ae839287fdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/pipeline-contracts/zipball/5fe30e55ac4af2ea23a15adba2ed349eb55db124",
-                "reference": "5fe30e55ac4af2ea23a15adba2ed349eb55db124",
+                "url": "https://api.github.com/repos/php-etl/pipeline-contracts/zipball/47e1e32aedb425c4624c1f6d9acf5ae839287fdf",
+                "reference": "47e1e32aedb425c4624c1f6d9acf5ae839287fdf",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "php-etl/bucket-contracts": "^0.2"
+                "php-etl/bucket-contracts": "0.2.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.0",
@@ -113,7 +113,7 @@
                 "issues": "https://github.com/php-etl/pipeline-contracts/issues",
                 "source": "https://github.com/php-etl/pipeline-contracts/tree/v0.4.0"
             },
-            "time": "2023-04-03T13:09:59+00:00"
+            "time": "2023-04-06T10:08:37+00:00"
         },
         {
             "name": "psr/container",
@@ -2764,16 +2764,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.15.23",
+            "version": "0.15.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "f4984ebd62b3613002869b0ddd6868261d62819e"
+                "reference": "716473919bcfdc27bdd2a32afb72adbf4c224e59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f4984ebd62b3613002869b0ddd6868261d62819e",
-                "reference": "f4984ebd62b3613002869b0ddd6868261d62819e",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/716473919bcfdc27bdd2a32afb72adbf4c224e59",
+                "reference": "716473919bcfdc27bdd2a32afb72adbf4c224e59",
                 "shasum": ""
             },
             "require": {
@@ -2813,7 +2813,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.15.23"
+                "source": "https://github.com/rectorphp/rector/tree/0.15.24"
             },
             "funding": [
                 {
@@ -2821,7 +2821,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-22T15:22:45+00:00"
+            "time": "2023-04-05T08:49:11+00:00"
         },
         {
             "name": "sanmai/later",
