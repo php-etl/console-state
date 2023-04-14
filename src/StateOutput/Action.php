@@ -9,10 +9,10 @@ final class Action
 {
     /** @var array<string, callable> */
     private array $metrics = [];
-    private ConsoleSectionOutput $section;
+    private readonly ConsoleSectionOutput $section;
 
     public function __construct(
-        private ConsoleOutput $output,
+        private readonly ConsoleOutput $output,
         string $index,
         string $label,
     )
