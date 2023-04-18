@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Kiboko\Component\State\StateOutput;
 
@@ -15,8 +17,7 @@ final class Action
         private readonly ConsoleOutput $output,
         string $index,
         string $label,
-    )
-    {
+    ) {
         $this->section = $this->output->section();
         $this->section->writeln('');
         $this->section->writeln(sprintf('<fg=green> % 2s. %-50s</>', $index, $label));
@@ -32,10 +33,11 @@ final class Action
     public function update(): void
     {
         $this->section
-            ->writeln('     ' . implode(', ', array_map(
-                fn(string $label, callable $callback) => sprintf('%s <fg=cyan>%d</>', $label, ($callback)()),
+            ->writeln('     '.implode(', ', array_map(
+                fn (string $label, callable $callback) => sprintf('%s <fg=cyan>%d</>', $label, ($callback)()),
                 array_keys($this->metrics),
                 array_values($this->metrics),
-            )));
+            )))
+        ;
     }
 }
