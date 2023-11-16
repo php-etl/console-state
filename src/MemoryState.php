@@ -11,7 +11,7 @@ final class MemoryState implements StateInterface
     private array $metrics = [];
 
     public function __construct(
-        private readonly StateInterface $decorated,
+        private readonly ?StateInterface $decorated = null,
     ) {
     }
 
@@ -23,25 +23,25 @@ final class MemoryState implements StateInterface
             'error' => 0,
         ];
 
-        $this->decorated->initialize($start);
+        $this->decorated?->initialize($start);
     }
 
     public function accept(int $step = 1): void
     {
         $this->metrics['accept'] += $step;
-        $this->decorated->accept($step);
+        $this->decorated?->accept($step);
     }
 
     public function reject(int $step = 1): void
     {
         $this->metrics['reject'] += $step;
-        $this->decorated->reject($step);
+        $this->decorated?->reject($step);
     }
 
     public function error(int $step = 1): void
     {
         $this->metrics['error'] += $step;
-        $this->decorated->error($step);
+        $this->decorated?->error($step);
     }
 
     public function observeAccept(): callable
@@ -56,6 +56,6 @@ final class MemoryState implements StateInterface
 
     public function teardown(): void
     {
-        $this->decorated->teardown();
+        $this->decorated?->teardown();
     }
 }
