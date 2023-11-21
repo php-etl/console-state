@@ -4,40 +4,9 @@ declare(strict_types=1);
 
 namespace Kiboko\Component\State\StateOutput;
 
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Output\ConsoleSectionOutput;
+trigger_deprecation('php-etl/console-state', '0.3', 'The "%s" class is deprecated, use "%s" instead.', 'Kiboko\\Component\\State\\StateOutput\\Action', \Kiboko\Component\Runtime\Action\Action::class);
 
-final class Action
-{
-    /** @var array<string, callable> */
-    private array $metrics = [];
-    private readonly ConsoleSectionOutput $section;
-
-    public function __construct(
-        private readonly ConsoleOutput $output,
-        string $index,
-        string $label,
-    ) {
-        $this->section = $this->output->section();
-        $this->section->writeln('');
-        $this->section->writeln(sprintf('<fg=green> % 2s. %-50s</>', $index, $label));
-    }
-
-    public function addMetric(string $label, callable $callback): self
-    {
-        $this->metrics[$label] = $callback;
-
-        return $this;
-    }
-
-    public function update(): void
-    {
-        $this->section
-            ->writeln('     '.implode(', ', array_map(
-                fn (string $label, callable $callback) => sprintf('%s <fg=cyan>%d</>', $label, ($callback)()),
-                array_keys($this->metrics),
-                array_values($this->metrics),
-            )))
-        ;
-    }
-}
+/*
+ * @deprecated since Satellite 0.2, use Kiboko\Component\Runtime\Action\Action instead.
+ */
+class_alias(\Kiboko\Component\Runtime\Action\Action::class, 'Kiboko\\Component\\State\\StateOutput\\Action');
