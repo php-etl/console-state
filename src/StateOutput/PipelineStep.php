@@ -4,41 +4,9 @@ declare(strict_types=1);
 
 namespace Kiboko\Component\State\StateOutput;
 
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Output\ConsoleSectionOutput;
+trigger_deprecation('php-etl/console-state', '0.3', 'The "%s" class is deprecated, use "%s" instead.', 'Kiboko\\Component\\State\\StateOutput\\Pipeline', \Kiboko\Component\Runtime\Pipeline\Step\Step::class);
 
-final class PipelineStep
-{
-    /** @var array<string, callable> */
-    private array $metrics = [];
-    private readonly ConsoleSectionOutput $section;
-
-    public function __construct(
-        private readonly ConsoleOutput $output,
-        int $index,
-        string $label,
-    ) {
-        $this->section = $this->output->section();
-        $this->section->writeln(sprintf('<fg=cyan> % 2d. %-50s</>', $index, $label));
-        $this->section->writeln('');
-    }
-
-    public function addMetric(string $label, callable $callback): self
-    {
-        $this->metrics[$label] = $callback;
-
-        return $this;
-    }
-
-    public function update(): void
-    {
-        $this->section->clear(1);
-        $this->section
-            ->writeln('     '.implode(', ', array_map(
-                fn (string $label, callable $callback) => sprintf('%s <fg=cyan>%d</>', $label, ($callback)()),
-                array_keys($this->metrics),
-                array_values($this->metrics),
-            )))
-        ;
-    }
-}
+/*
+ * @deprecated since Satellite 0.2, use Kiboko\Component\Runtime\Pipeline\Step\Step instead.
+ */
+class_alias(\Kiboko\Component\Runtime\Pipeline\Step\Step::class, 'Kiboko\\Component\\State\\StateOutput\\Pipeline');

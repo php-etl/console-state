@@ -4,34 +4,9 @@ declare(strict_types=1);
 
 namespace Kiboko\Component\State\StateOutput;
 
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Output\ConsoleSectionOutput;
+trigger_deprecation('php-etl/console-state', '0.3', 'The "%s" class is deprecated, use "%s" instead.', 'Kiboko\\Component\\State\\StateOutput\\Pipeline', \Kiboko\Component\Runtime\Pipeline\Pipeline::class);
 
-final class Pipeline
-{
-    /** @var list<PipelineStep> */
-    private array $steps = [];
-    private readonly ConsoleSectionOutput $section;
-
-    public function __construct(
-        private readonly ConsoleOutput $output,
-        string $index,
-        string $label,
-    ) {
-        $this->section = $output->section();
-        $this->section->writeln('');
-        $this->section->writeln(sprintf('<fg=green> % 2s. %-50s</>', $index, $label));
-    }
-
-    public function withStep(string $label): PipelineStep
-    {
-        return $this->steps[] = new PipelineStep($this->output, \count($this->steps) + 1, $label);
-    }
-
-    public function update(): void
-    {
-        foreach ($this->steps as $step) {
-            $step->update();
-        }
-    }
-}
+/*
+ * @deprecated since Satellite 0.2, use Kiboko\Component\Runtime\Pipeline\Pipeline instead.
+ */
+class_alias(\Kiboko\Component\Runtime\Pipeline\Pipeline::class, 'Kiboko\\Component\\State\\StateOutput\\Pipeline');
